@@ -16,10 +16,19 @@ namespace telephone_book
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-LRMEISB\\SQLEXPRESS;Initial Catalog=TelephoneBook;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-LRMEISB\SQLEXPRESS;Initial Catalog=TelephoneBook;Integrated Security=True");
+
+        void list()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * From PEOPLE", con);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            list();
         }
     }
 }
