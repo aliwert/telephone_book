@@ -42,7 +42,17 @@ namespace telephone_book
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into PEOPLE(NAME,SURNAME,MAIL,PHONE)values(@p1,@p2,@p3,@p4)",con);
+            cmd.Parameters.AddWithValue("@p1", txtName.Text);
+            cmd.Parameters.AddWithValue("@p2", txtSurname.Text);
+            cmd.Parameters.AddWithValue("@p3", txtMail.Text);
+            cmd.Parameters.AddWithValue("@p4", mskPhone.Text);
+            cmd.ExecuteNonQuery(); // run sql 
+            con.Close();
+            MessageBox.Show("Information has been saved", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            list();
+            clear();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
