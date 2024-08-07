@@ -59,5 +59,16 @@ namespace telephone_book
         {
             clear();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int c =dataGridView1.SelectedCells[0].RowIndex;
+            txtID.Text = dataGridView1.Rows[c].Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.Rows[c].Cells[1].Value.ToString();
+            txtSurname.Text = dataGridView1.Rows[c].Cells[2].Value.ToString();
+            mskPhone.Text = dataGridView1.Rows[c].Cells[3].Value.ToString();
+            txtMail.Text = dataGridView1.Rows[c].Cells[4].Value.ToString();
+            
+        }
     }
 }
