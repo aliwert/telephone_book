@@ -26,9 +26,28 @@ namespace telephone_book
             dataGridView1.DataSource = dt;
 
         }
+        void clear()
+        {
+            txtName.Text = string.Empty;
+            txtID.Text = string.Empty;
+            txtMail.Text = string.Empty;
+            txtSurname.Text = string.Empty;
+            mskPhone.Text = string.Empty;
+            txtName.Focus();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             list();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }
