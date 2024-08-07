@@ -91,8 +91,12 @@ namespace telephone_book
             cmd.Parameters.AddWithValue("@t2", txtSurname.Text);
             cmd.Parameters.AddWithValue("@t3", mskPhone.Text);
             cmd.Parameters.AddWithValue("@t4", txtMail.Text);
+            cmd.Parameters.AddWithValue("@t5", txtID.Text);
             cmd.ExecuteNonQuery();
             con.Close();
+            MessageBox.Show("Information has been updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            list();
+            clear();
         }
     }
 }
