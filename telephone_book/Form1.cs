@@ -82,5 +82,17 @@ namespace telephone_book
             clear();
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update from PEOPLE set NAME=@t1, SURNAME=@t2, PHONE=@t3, MAIL=@t4 where ID=@t5", con);
+            cmd.Parameters.AddWithValue("@t1", txtName.Text);
+            cmd.Parameters.AddWithValue("@t2", txtSurname.Text);
+            cmd.Parameters.AddWithValue("@t3", mskPhone.Text);
+            cmd.Parameters.AddWithValue("@t4", txtMail.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
