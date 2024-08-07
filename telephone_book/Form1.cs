@@ -70,5 +70,17 @@ namespace telephone_book
             txtMail.Text = dataGridView1.Rows[c].Cells[4].Value.ToString();
             
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete from PEOPLE where ID=" + txtID.Text, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Information has been deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            list();
+            clear();
+
+        }
     }
 }
